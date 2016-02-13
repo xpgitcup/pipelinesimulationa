@@ -16,7 +16,7 @@ class GasComponent {
     String unifacStructure      //
     String alias                //英文简称
     Boolean isPseudo            //是否是假组分
-    FluidGas gas                //所属气体，一般为空，只有假组分会有所属气体
+    String gas                  //所属气体，一般为空，只有假组分会有所属气体--只记录气体名称
     
     static belongsTo = [family: GasComponentFamily]
    

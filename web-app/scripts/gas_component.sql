@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : sample
-Source Server Version : 50620
+Source Server Version : 50626
 Source Host           : localhost:3306
 Source Database       : psdba
 
 Target Server Type    : MYSQL
-Target Server Version : 50620
+Target Server Version : 50626
 File Encoding         : 65001
 
-Date: 2016-02-13 17:52:56
+Date: 2016-02-13 22:53:45
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,14 +26,12 @@ CREATE TABLE `gas_component` (
   `chem_formula` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `family_id` bigint(20) NOT NULL,
-  `gas_id` bigint(20) DEFAULT NULL,
+  `gas` varchar(255) DEFAULT NULL,
   `is_pseudo` bit(1) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `unifac_structure` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_p9bkvi7964imu5sg6by05bi2k` (`family_id`),
-  KEY `FK_dd5ij0jxf25lvsybpa17jxi3` (`gas_id`),
-  CONSTRAINT `FK_dd5ij0jxf25lvsybpa17jxi3` FOREIGN KEY (`gas_id`) REFERENCES `fluid_gas` (`id`),
   CONSTRAINT `FK_p9bkvi7964imu5sg6by05bi2k` FOREIGN KEY (`family_id`) REFERENCES `gas_component_family` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=128 DEFAULT CHARSET=utf8;
 

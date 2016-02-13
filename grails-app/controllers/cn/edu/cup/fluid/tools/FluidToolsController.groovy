@@ -108,7 +108,7 @@ class FluidToolsController {
         zfNames.keySet().each() {e->
             if (e.isPseudo) {
                 println "这个就是假组分： ${e}"
-                e.gas = gas
+                e.gas = gas.name
                 e.save(flush: true)
                 println "保存假组分： ${e}"
             }
