@@ -8,6 +8,8 @@ class GasComponent {
     String chemFormula          //
     String unifacStructure      //
     String alias                //英文简称
+    Boolean isPseudo            //是否是假组分
+    FluidGas gas                //所属气体，一般为空，只有假组分会有所属气体
     
     static belongsTo = [family: GasComponentFamily]
    
@@ -18,6 +20,8 @@ class GasComponent {
         chemFormula(nullable: true)
         unifacStructure(nullable: true)
         alias(nullable: true)
+        isPseudo()
+        gas(nullable: true)
     }
     
     static mapping = {

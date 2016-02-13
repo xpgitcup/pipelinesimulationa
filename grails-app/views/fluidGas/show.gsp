@@ -32,11 +32,29 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${fluidGasInstance?.pseudo}">
+				<g:if test="${fluidGasInstance?.comment}">
 				<li class="fieldcontain">
-					<span id="pseudo-label" class="property-label"><g:message code="fluidGas.pseudo.label" default="Pseudo" /></span>
+					<span id="comment-label" class="property-label"><g:message code="fluidGas.comment.label" default="Comment" /></span>
 					
-						<span class="property-value" aria-labelledby="pseudo-label"><g:link controller="pseudoComponent" action="show" id="${fluidGasInstance?.pseudo?.id}">${fluidGasInstance?.pseudo?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="comment-label"><g:fieldValue bean="${fluidGasInstance}" field="comment"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${fluidGasInstance?.moleMass}">
+				<li class="fieldcontain">
+					<span id="moleMass-label" class="property-label"><g:message code="fluidGas.moleMass.label" default="Mole Mass" /></span>
+					
+						<span class="property-value" aria-labelledby="moleMass-label"><g:fieldValue bean="${fluidGasInstance}" field="moleMass"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${fluidGasInstance?.moleMassUnit}">
+				<li class="fieldcontain">
+					<span id="moleMassUnit-label" class="property-label"><g:message code="fluidGas.moleMassUnit.label" default="Mole Mass Unit" /></span>
+					
+						<span class="property-value" aria-labelledby="moleMassUnit-label"><g:fieldValue bean="${fluidGasInstance}" field="moleMassUnit"/></span>
 					
 				</li>
 				</g:if>

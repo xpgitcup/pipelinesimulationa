@@ -77,6 +77,24 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${gasComponentInstance?.isPseudo}">
+				<li class="fieldcontain">
+					<span id="isPseudo-label" class="property-label"><g:message code="gasComponent.isPseudo.label" default="Is Pseudo" /></span>
+					
+						<span class="property-value" aria-labelledby="isPseudo-label"><g:formatBoolean boolean="${gasComponentInstance?.isPseudo}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${gasComponentInstance?.gas}">
+				<li class="fieldcontain">
+					<span id="gas-label" class="property-label"><g:message code="gasComponent.gas.label" default="Gas" /></span>
+					
+						<span class="property-value" aria-labelledby="gas-label"><g:link controller="fluidGas" action="show" id="${gasComponentInstance?.gas?.id}">${gasComponentInstance?.gas?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${gasComponentInstance?.family}">
 				<li class="fieldcontain">
 					<span id="family-label" class="property-label"><g:message code="gasComponent.family.label" default="Family" /></span>

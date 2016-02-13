@@ -11,12 +11,30 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: fluidGasInstance, field: 'pseudo', 'error')} ">
-	<label for="pseudo">
-		<g:message code="fluidGas.pseudo.label" default="Pseudo" />
+<div class="fieldcontain ${hasErrors(bean: fluidGasInstance, field: 'comment', 'error')} ">
+	<label for="comment">
+		<g:message code="fluidGas.comment.label" default="Comment" />
 		
 	</label>
-	<g:select id="pseudo" name="pseudo.id" from="${cn.edu.cup.fluid.gas.PseudoComponent.list()}" optionKey="id" value="${fluidGasInstance?.pseudo?.id}" class="many-to-one" noSelection="['null': '']"/>
+	<g:textField name="comment" value="${fluidGasInstance?.comment}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: fluidGasInstance, field: 'moleMass', 'error')} ">
+	<label for="moleMass">
+		<g:message code="fluidGas.moleMass.label" default="Mole Mass" />
+		
+	</label>
+	<g:field name="moleMass" value="${fieldValue(bean: fluidGasInstance, field: 'moleMass')}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: fluidGasInstance, field: 'moleMassUnit', 'error')} required">
+	<label for="moleMassUnit">
+		<g:message code="fluidGas.moleMassUnit.label" default="Mole Mass Unit" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="moleMassUnit" required="" value="${fluidGasInstance?.moleMassUnit}"/>
 
 </div>
 

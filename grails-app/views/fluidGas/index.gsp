@@ -26,7 +26,11 @@
 					
 						<g:sortableColumn property="name" title="${message(code: 'fluidGas.name.label', default: 'Name')}" />
 					
-						<th><g:message code="fluidGas.pseudo.label" default="Pseudo" /></th>
+						<g:sortableColumn property="comment" title="${message(code: 'fluidGas.comment.label', default: 'Comment')}" />
+					
+						<g:sortableColumn property="moleMass" title="${message(code: 'fluidGas.moleMass.label', default: 'Mole Mass')}" />
+					
+						<g:sortableColumn property="moleMassUnit" title="${message(code: 'fluidGas.moleMassUnit.label', default: 'Mole Mass Unit')}" />
 					
 					</tr>
 				</thead>
@@ -36,7 +40,11 @@
 					
 						<td><g:link action="show" id="${fluidGasInstance.id}">${fieldValue(bean: fluidGasInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: fluidGasInstance, field: "pseudo")}</td>
+						<td>${fieldValue(bean: fluidGasInstance, field: "comment")}</td>
+					
+						<td>${fieldValue(bean: fluidGasInstance, field: "moleMass")}</td>
+					
+						<td>${fieldValue(bean: fluidGasInstance, field: "moleMassUnit")}</td>
 					
 					</tr>
 				</g:each>

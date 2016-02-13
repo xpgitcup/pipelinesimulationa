@@ -56,6 +56,24 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: gasComponentInstance, field: 'isPseudo', 'error')} ">
+	<label for="isPseudo">
+		<g:message code="gasComponent.isPseudo.label" default="Is Pseudo" />
+		
+	</label>
+	<g:checkBox name="isPseudo" value="${gasComponentInstance?.isPseudo}" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: gasComponentInstance, field: 'gas', 'error')} ">
+	<label for="gas">
+		<g:message code="gasComponent.gas.label" default="Gas" />
+		
+	</label>
+	<g:select id="gas" name="gas.id" from="${cn.edu.cup.fluid.gas.FluidGas.list()}" optionKey="id" value="${gasComponentInstance?.gas?.id}" class="many-to-one" noSelection="['null': '']"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: gasComponentInstance, field: 'family', 'error')} required">
 	<label for="family">
 		<g:message code="gasComponent.family.label" default="Family" />
