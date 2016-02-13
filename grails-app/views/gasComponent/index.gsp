@@ -60,7 +60,7 @@
 					
 						<td><g:formatBoolean boolean="${gasComponentInstance.isPseudo}" /></td>
 					
-						<td>${fieldValue(bean: gasComponentInstance, field: "gas")}</td>
+						<td>${gasComponentInstance?.gas}</td>
 					
 					</tr>
 				</g:each>
