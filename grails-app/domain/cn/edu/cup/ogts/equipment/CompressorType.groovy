@@ -13,6 +13,8 @@ class CompressorType {
     String compressorModel
 
     static constraints = {
+        manufacturer()
+        compressorModel()
     }
     
     String toString() {
