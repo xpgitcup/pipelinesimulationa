@@ -1,9 +1,20 @@
 package cn.edu.cup.fluid.gas
 
+/*
+ * 气体
+ * 2016.02.13, 
+ * 李晓平
+ * -----------------------------------------------------------------------------
+ * 气体--组分模型
+ * 组分、假组分统一处理
+ * 
+ * */
 class FluidGas {
 
     String name
-    PseudoComponent pseudo
+    String comment  //备注
+    Double moleMass
+    String moleMassUnit
     
     static hasMany = [componentFactor: ComponentFactor]
     
@@ -13,7 +24,9 @@ class FluidGas {
     
     static constraints = {
         name()
-        pseudo(nullable: true)
+        comment(nullable: true)
+        moleMass(nullable: true)
+        moleMassUnit()
     }
     
     String toString() {
