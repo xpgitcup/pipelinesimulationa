@@ -65,3 +65,10 @@ INSERT INTO `system_menu` VALUES ('81', '0', 'valueType/index', '数据类型', 
 INSERT INTO `system_menu` VALUES ('82', '0', 'keyWord/index', '数据字典', '数据字典', '0', '0', '80');
 INSERT INTO `system_menu` VALUES ('83', '0', 'keyWordTree/index4keyword', '树形字典', '以树形结构维护关键字', '0', '0', '80');
 INSERT INTO `system_menu` VALUES ('85', '1', 'objectMapping/index', '对象映射', '管理对象的映射关系', '0', '0', '80');
+
+INSERT INTO `system_menu` VALUES ('100', '2', '#', '压缩机特性曲线', '压缩机特性曲线', '5', '0', null);
+INSERT INTO `system_menu` VALUES ('101', '0', 'compressorType/index', '压缩机类型', '压缩机类型', '0', '0', '100');
+INSERT INTO `system_menu` VALUES ('102', '0', 'compressor/index', '压缩机', '压缩机', '0', '0', '100');
+INSERT INTO `system_menu` VALUES ('103', '0', 'compressorCurveTest/index', '特性曲线测试', '特性曲线测试', '0', '0', '100');
+INSERT INTO `system_menu` VALUES ('104', '1', 'curve/index', '曲线', '曲线', '0', '0', '100');
+INSERT INTO `system_menu` VALUES ('105', '1', 'curvePoint/index', '点', '点', '0', '0', '100');

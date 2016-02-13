@@ -12,7 +12,14 @@ class Compressor {
     String name
     CompressorType compressorType
     
+    String driverName
+    String driverType
+    
     static constraints = {
+        name()
+        compressorType(nullable: true)
+        driverName(nullable: true)
+        driverType(nullable: true)
     }
     
     String toString() {
