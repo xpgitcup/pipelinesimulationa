@@ -27,7 +27,7 @@ class GasComponent {
         chemFormula(nullable: true)
         unifacStructure(nullable: true)
         alias(nullable: true)
-        isPseudo()
+        isPseudo(nullable: true)
         gas(nullable: true)
     }
     
