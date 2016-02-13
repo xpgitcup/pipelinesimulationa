@@ -41,16 +41,11 @@ INSERT INTO `system_menu` VALUES ('35', '0', 'gasComponentProperty/index', '组�
 INSERT INTO `system_menu` VALUES ('36', '0', 'gasComponentPropertyValue/index', '物性数值', '维护气体组分物性信息', '0', '0', '30');
 INSERT INTO `system_menu` VALUES ('37', '0', 'gasComponentPropertyValueFactor/index', '物性系数', '维护气体组分物性信息', '0', '0', '30');
 
-INSERT INTO `system_menu` VALUES ('40', '1', '#', '导入工程基础数据', '用户配置工程基础数据', '1', '0', null);
-INSERT INTO `system_menu` VALUES ('41', '0', 'fluidGasTools/prepareImportGasComponentNames', '组分名称', '维护气体组分参数信息', '0', '0', '40');
-INSERT INTO `system_menu` VALUES ('42', '0', 'propertyTools/prepareImportPropertyNames', '参数名称', '维护气体组分参数信息', '0', '0', '40');
-INSERT INTO `system_menu` VALUES ('43', '0', 'propertyDataTools/prepareImportPropertyDataA', '简单物性', '维护气体组分参数信息', '0', '0', '40');
-INSERT INTO `system_menu` VALUES ('44', '0', 'propertyDataTools/prepareImportTemplate', '下载数据模板', '给用户提供一个数据模板', '0', '0', '40');
+INSERT INTO `system_menu` VALUES ('38', '0', 'fluidGasTools/prepareImportGasComponentNames', '组分名称', '维护气体组分参数信息', '0', '0', '30');
 
-INSERT INTO `system_menu` VALUES ('50', '1', '#', '气体信息', '维护气体信息', '1', '0', null);
-INSERT INTO `system_menu` VALUES ('51', '0', 'fluidTools/index', '气体种类', '维护气体信息', '0', '0', '50');
-INSERT INTO `system_menu` VALUES ('52', '0', 'fluidTools/prepareImportComponentFactors', '导入气体', '维护气体信息', '0', '0', '50');
-INSERT INTO `system_menu` VALUES ('53', '0', 'fluidTools/exportComponentNames', '选择气体组分', '维护气体信息', '0', '0', '50');
+INSERT INTO `system_menu` VALUES ('42', '0', 'propertyTools/prepareImportPropertyNames', '参数名称', '维护气体组分参数信息', '0', '0', '30');
+INSERT INTO `system_menu` VALUES ('43', '0', 'propertyDataTools/prepareImportPropertyDataA', '简单物性', '维护气体组分参数信息', '0', '0', '30');
+INSERT INTO `system_menu` VALUES ('44', '0', 'propertyDataTools/prepareImportTemplate', '下载数据模板', '给用户提供一个数据模板', '0', '0', '30');
 
 INSERT INTO `system_menu` VALUES ('100', '2', '#', '压缩机特性曲线', '压缩机特性曲线', '5', '0', null);
 INSERT INTO `system_menu` VALUES ('101', '0', 'compressorType/index', '压缩机类型', '压缩机类型', '0', '0', '100');
@@ -61,4 +56,5 @@ INSERT INTO `system_menu` VALUES ('105', '1', 'curvePoint/index', '点', '点', 
 
 INSERT INTO `system_menu` VALUES ('200', '2', '#', '气体信息', '气体相关信息', '5', '0', null);
 INSERT INTO `system_menu` VALUES ('201', '0', 'fluidGas/index', '气体', '维护气体信息', '0', '0', '200');
-INSERT INTO `system_menu` VALUES ('202', '0', 'componentFactor/index', '组分数', '维护气体组分信息', '0', '0', '200');
+INSERT INTO `system_menu` VALUES ('202', '0', 'fluidTools/prepareImportComponentFactors', '导入气体', '维护气体信息', '0', '0', '200');
+INSERT INTO `system_menu` VALUES ('203', '0', 'componentFactor/index', '组分数', '维护气体组分信息', '0', '0', '200');

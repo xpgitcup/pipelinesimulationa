@@ -37,10 +37,16 @@ class GasComponent {
     }
     
     String toString() {
-        if (!name) {
-            return "${alias}(${description})"
+        def str
+        if (isPseudo) {
+            str = "|假组分"
         } else {
-            return "${name}(${description})"
+            str = ""
+        }
+        if (!name) {
+            return "${alias}${str}(${description})"
+        } else {
+            return "${name}${str}(${description})"
         }
     }
     
@@ -53,8 +59,12 @@ class GasComponent {
     
     /*
      * 根据别名、名称、查找组分 --- 为什么必须说明称静态的？？？
+     * -------------------------------------------------------------------------
+     * 根据名字、别名等等查找，实在找不到就是假组分！
      * */
     static searchGasComponent(String gname) {
+        //类别
+        def f = GasComponentFamily.get(1)
         //先判断别名
         def byAlias = GasComponent.find("from GasComponent where alias like '%${gname}%'")
         if (byAlias) {
@@ -74,7 +84,14 @@ class GasComponent {
                     if (byCasNumber) {
                         return byCasNumber
                     } else {
-                        return null
+                        def pseudoComponent = new GasComponent(name: gname,
+                            isPseudo: true,
+                            description: "假组分",
+                            gas: null,
+                            family: f
+                        )
+                        //pseudoComponent.save(flush: true)
+                        return pseudoComponent
                     }
                 }
             }

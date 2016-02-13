@@ -26,7 +26,7 @@ class FluidGas {
         name()
         comment(nullable: true)
         moleMass(nullable: true)
-        moleMassUnit()
+        moleMassUnit(nullable: true)
     }
     
     String toString() {

@@ -2,8 +2,8 @@ package cn.edu.cup.fluid.tools
 
 import cn.edu.cup.fluid.gas.GasComponent
 import cn.edu.cup.fluid.gas.ComponentFactor
+import cn.edu.cup.fluid.gas.ComponentFactorType
 import cn.edu.cup.fluid.gas.FluidGas
-import cn.edu.cup.fluid.gas.PseudoComponent
 import cn.edu.cup.system.SystemProcedure
 import grails.transaction.Transactional
 
@@ -81,7 +81,6 @@ class FluidToolsController {
         //先检查气体名称、组分名称、以及假组分名称
         def gname = '未命名'
         def zfNames = [:]
-        def nzfNames = [:]
         data.eachWithIndex() {e, i->
             println "${i}---${e}"
             //如果第一行只有一个数据，第一个数据就是气体的名字
@@ -93,11 +92,7 @@ class FluidToolsController {
                     def name = e[0]
                     println "${name}"
                     def p = GasComponent.searchGasComponent(name)
-                    if (p) {
-                        zfNames.put(p, e[1]) 
-                    } else {
-                        nzfNames.put(e[0], e[1])
-                    }
+                    zfNames.put(p, e[1]) 
                 }
             }
         }
@@ -106,31 +101,36 @@ class FluidToolsController {
          * */
         def gas = new FluidGas(name: gname)
         //------------------------------------------------------------------
-        if (nzfNames?.size()==1) {
-            def key = nzfNames.keySet()[0]
-            def f = nzfNames.get(key)
-            def ps = new PseudoComponent(name: key, 
-                factor: f,
-                fluidGas: gas
-            )
-            ps.save(flush: true)
-            //println "save ${ps}"
-        }
-        //------------------------------------------------------------------
         gas.save(flush: true)
         //println "save ${gas}"
+        //处理假组分的信息——到底属于那个气体
+        println "处理假组分<<< ${gas}"
+        zfNames.keySet().each() {e->
+            if (e.isPseudo) {
+                println "这个就是假组分： ${e}"
+                e.gas = gas
+                e.save(flush: true)
+                println "保存假组分： ${e}"
+            }
+        }
         //------------------------------------------------------------------
+        //组分分数类型
+        def cft = ComponentFactorType.get(1)
+        println "--- 分数类型： ${cft}"
         zfNames.eachWithIndex() {e, i->
             //println "${e} -- ${i}"
             def p = e.getKey()
             def f = e.value
-            //println "${p}  ${f}"
+            println "${p}  ${f}"
             def gc = new ComponentFactor(gasComponent: e.key,
                 value: f,
+                factorType: cft,
                 fluidGas: gas
             )
-            gc.save(flush: true)
-            //println "save ${gc}"
+            if (gc.value > 0) {
+                gc.save(flush: true)
+                println "save ${gc}"
+            }
         }
         
         //------------------------------------------------------------------

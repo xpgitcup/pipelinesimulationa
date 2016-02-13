@@ -50,12 +50,6 @@
                                     <td>${e.value}</td>
                                 </tr>
                             </g:each>
-                            <g:if test="${fluidGasInstance.pseudo}">
-                                <tr>
-                                    <td>${fluidGasInstance.pseudo.name}</td>
-                                    <td>${fluidGasInstance.pseudo.factor}</td>
-                                </tr>
-                            </g:if>
                         </tbody>
                     </table>
                 </td>
