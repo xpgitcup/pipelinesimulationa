@@ -45,6 +45,13 @@ class GasComponent {
     }
     
     /*
+     * 气体属性！
+     * */
+    static double gasProperty(String propertyName) {
+        return 0
+    }
+    
+    /*
      * 根据别名、名称、查找组分 --- 为什么必须说明称静态的？？？
      * */
     static searchGasComponent(String gname) {
