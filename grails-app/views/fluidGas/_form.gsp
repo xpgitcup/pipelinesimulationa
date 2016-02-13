@@ -29,12 +29,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: fluidGasInstance, field: 'moleMassUnit', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: fluidGasInstance, field: 'moleMassUnit', 'error')} ">
 	<label for="moleMassUnit">
 		<g:message code="fluidGas.moleMassUnit.label" default="Mole Mass Unit" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="moleMassUnit" required="" value="${fluidGasInstance?.moleMassUnit}"/>
+	<g:textField name="moleMassUnit" value="${fluidGasInstance?.moleMassUnit}"/>
 
 </div>
 
