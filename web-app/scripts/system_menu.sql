@@ -54,7 +54,10 @@ INSERT INTO `system_menu` VALUES ('103', '0', 'compressorCurveTest/index', '特�
 INSERT INTO `system_menu` VALUES ('104', '1', 'curve/index', '曲线', '曲线', '0', '0', '100');
 INSERT INTO `system_menu` VALUES ('105', '1', 'curvePoint/index', '点', '点', '0', '0', '100');
 
-INSERT INTO `system_menu` VALUES ('200', '2', '#', '气体信息', '气体相关信息', '5', '0', null);
+INSERT INTO `system_menu` VALUES ('200', '2', '#', '气体信息-基础', '气体相关信息', '5', '0', null);
 INSERT INTO `system_menu` VALUES ('201', '0', 'fluidGas/index', '气体', '维护气体信息', '0', '0', '200');
-INSERT INTO `system_menu` VALUES ('202', '0', 'fluidTools/prepareImportComponentFactors', '导入气体', '维护气体信息', '0', '0', '200');
 INSERT INTO `system_menu` VALUES ('203', '0', 'componentFactor/index', '组分数', '维护气体组分信息', '0', '0', '200');
+
+INSERT INTO `system_menu` VALUES ('300', '2', '#', '气体信息维护', '气体相关信息', '5', '0', null);
+INSERT INTO `system_menu` VALUES ('301', '0', 'fluidTools/index', '气体', '维护气体信息', '0', '0', '300');
+INSERT INTO `system_menu` VALUES ('302', '0', 'fluidTools/prepareImportComponentFactors', '导入气体', '维护气体信息', '0', '0', '300');

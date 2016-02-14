@@ -10,8 +10,15 @@
         <a href="#list-testDataA" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="nav" role="navigation">
             <ul>
-                <li><g:link class="home">请确认文件[${filename}]内容</g:link></li>
-                <li><g:link class="home" controller="${nextStep.controllerName}" action="${nextStep.actionName}" params='[filename: "${filename}", stepid: "${nextStep.id}"]' >确认-下一步-></g:link></li>
+                <li>
+                    <g:link class="home">请确认文件[${filename}]内容
+                    </g:link>
+                </li>
+                <li>
+                    <g:link class="home" controller="${nextStep.controllerName}" action="${nextStep.actionName}" params='[filename: "${filename}", stepid: "${nextStep.id}"]' >
+                        确认-下一步->
+                    </g:link>
+                </li>
                 <li><a href="javascript:history.go(-1);">重选</a></li>
                 <g:if test="${data.size>0}">
                     <li class="info">
