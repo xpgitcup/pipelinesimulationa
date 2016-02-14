@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$(function(){
+$(function () {
     console.info("处理附加的操作...");
     var appendTextDiv = $("#appendActionsText");
     //console.info(appendTextDiv);
@@ -14,17 +14,17 @@ $(function(){
 
     var ul = $("#action");
     console.info(ul);
-    
-    $.each(appendArray, function(index, value){
+
+    $.each(appendArray, function (index, value) {
         //console.info(index);
         //console.info(value);
         var action = value.split(":");
         console.info(action);
-        var nstr = "<li href=\"javascript:" + action[1] + "()\">" + action[0] + "</li>"; 
+        //var $nstr =$("<li href=\"javascript:" + action[1] + "()\">" + action[0] + "</li>"); 
+        var nstr = "<li> <a href=\"javascript:" + action[1] + "()\">" + action[0] + "</a></li>";
         console.info(nstr);
         ul.append(nstr);
     });
-    console.info(ul);
 });
 
 function checkGasName() {
@@ -37,7 +37,7 @@ function checkGasName() {
     console.info(b11);
     var c11 = b11[0].innerText;
     console.info(c11);
-    
+
     $.ajax({
         type: 'POST',
         url: 'fluidTools/checkFluidGasName',
@@ -51,5 +51,5 @@ function checkGasName() {
             console.log('检查气体名字是否重复-出错了' + errorThrown);
         }
     });
-    
+
 }
