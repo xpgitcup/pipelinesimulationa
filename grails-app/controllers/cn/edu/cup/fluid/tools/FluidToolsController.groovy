@@ -69,35 +69,21 @@ class FluidToolsController {
     /*
      * 检查气体文件名，如果重名，提示更换！！
      * */
-    def checkFluidGasName(){
-        def id = params.stepid
-        def procedure = SystemProcedure.get(id)
-        println "importComponentFactors ${procedure}"
-        //下一步操作
-        def nextStep = procedure.next
-        /*
-         * 获取数据
-         * */
-        def data = excelService.importExcelFile(params)
-        def filename = params.filename
-        //对数据进行判断
-        def row = data[0]
-        println "第一行： ${row}"
-        if (row) {
-            def gname = row[0]
-            def g = FluidGas.findByName(gname)
-            if (g) {
-                flash.message = "重名！${g}，请重新选择文件！或重新命名！"
-            }
-        }  else {
-            flash.message = "首行数据就不对！" 
+    def checkFluidGasName(params){
+        def gname = params.name
+        def g = FluidGas.findByName(gname)
+        if (g) {
+            flash.message = "重名！${g}，请重新选择文件！或重新命名！"
+        } else {
+            flash.message = "${gname}，可以导入！"
         }
         println "${flash.message}"
-        //仍然跳转到showDataTable 
-        render(view: "file/showDataTable",
-            model:[data: data, 
-                filename: filename, 
-                nextStep: nextStep])
+        
+        if (request.xhr) {
+            render(template: "gasResult", model:[flash: flash])
+        } else {
+            render(template: "gasResult", model:[flash: flash])
+        }
     }
     
     /*

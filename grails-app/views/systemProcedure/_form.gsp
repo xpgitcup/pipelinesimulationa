@@ -47,6 +47,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: systemProcedureInstance, field: 'appendActions', 'error')} ">
+	<label for="appendActions">
+		<g:message code="systemProcedure.appendActions.label" default="Append Actions" />
+		
+	</label>
+	<g:textField name="appendActions" value="${systemProcedureInstance?.appendActions}"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: systemProcedureInstance, field: 'previous', 'error')} ">
 	<label for="previous">
 		<g:message code="systemProcedure.previous.label" default="Previous" />

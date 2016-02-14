@@ -68,6 +68,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${systemProcedureInstance?.appendActions}">
+				<li class="fieldcontain">
+					<span id="appendActions-label" class="property-label"><g:message code="systemProcedure.appendActions.label" default="Append Actions" /></span>
+					
+						<span class="property-value" aria-labelledby="appendActions-label"><g:fieldValue bean="${systemProcedureInstance}" field="appendActions"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${systemProcedureInstance?.previous}">
 				<li class="fieldcontain">
 					<span id="previous-label" class="property-label"><g:message code="systemProcedure.previous.label" default="Previous" /></span>

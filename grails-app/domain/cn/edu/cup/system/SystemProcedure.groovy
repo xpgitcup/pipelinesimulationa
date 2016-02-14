@@ -7,6 +7,7 @@ class SystemProcedure {
     String actionName
     String viewName
     String templateName
+    String appendActions
     SystemProcedure previous
     SystemProcedure next
     
@@ -17,6 +18,7 @@ class SystemProcedure {
         actionName(nullable: true)
         viewName(nullable: true)
         templateName(nullable: true)
+        appendActions(nullable: true)
         previous(nullable: true)
         next(nullable: true)
     }
