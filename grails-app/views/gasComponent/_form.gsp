@@ -70,7 +70,7 @@
 		<g:message code="gasComponent.gas.label" default="Gas" />
 		
 	</label>
-	<g:select id="gas" name="gas.id" from="${cn.edu.cup.fluid.gas.FluidGas.list()}" optionKey="id" value="${gasComponentInstance?.gas?.id}" class="many-to-one" noSelection="['null': '']"/>
+	<g:textField name="gas" value="${gasComponentInstance?.gas}"/>
 
 </div>
 

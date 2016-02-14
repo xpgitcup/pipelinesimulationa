@@ -90,7 +90,7 @@
 				<li class="fieldcontain">
 					<span id="gas-label" class="property-label"><g:message code="gasComponent.gas.label" default="Gas" /></span>
 					
-						<span class="property-value" aria-labelledby="gas-label"><g:link controller="fluidGas" action="show" id="${gasComponentInstance?.gas?.id}">${gasComponentInstance?.gas?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="gas-label"><g:fieldValue bean="${gasComponentInstance}" field="gas"/></span>
 					
 				</li>
 				</g:if>

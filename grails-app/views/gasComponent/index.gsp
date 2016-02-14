@@ -38,7 +38,7 @@
 					
 						<g:sortableColumn property="isPseudo" title="${message(code: 'gasComponent.isPseudo.label', default: 'Is Pseudo')}" />
 					
-						<th><g:message code="gasComponent.gas.label" default="Gas" /></th>
+						<g:sortableColumn property="gas" title="${message(code: 'gasComponent.gas.label', default: 'Gas')}" />
 					
 					</tr>
 				</thead>
@@ -60,7 +60,7 @@
 					
 						<td><g:formatBoolean boolean="${gasComponentInstance.isPseudo}" /></td>
 					
-						<td>${gasComponentInstance?.gas}</td>
+						<td>${fieldValue(bean: gasComponentInstance, field: "gas")}</td>
 					
 					</tr>
 				</g:each>
