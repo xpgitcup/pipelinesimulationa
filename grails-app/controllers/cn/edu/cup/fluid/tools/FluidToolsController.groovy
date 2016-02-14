@@ -109,6 +109,7 @@ class FluidToolsController {
             if (e.isPseudo) {
                 println "这个就是假组分： ${e}"
                 e.gas = gas.name
+                e.name = e.name + "(${gas.name})"
                 e.save(flush: true)
                 println "保存假组分： ${e}"
             }
