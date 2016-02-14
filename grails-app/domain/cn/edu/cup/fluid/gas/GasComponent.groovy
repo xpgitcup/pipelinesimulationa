@@ -37,16 +37,10 @@ class GasComponent {
     }
     
     String toString() {
-        def str
-        if (isPseudo) {
-            str = "|假组分"
-        } else {
-            str = ""
-        }
         if (!name) {
-            return "${alias}${str}(${description})"
+            return "${alias}(${description})"
         } else {
-            return "${name}${str}(${description})"
+            return "${name}(${description})"
         }
     }
     
