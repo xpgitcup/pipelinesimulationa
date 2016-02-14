@@ -167,7 +167,7 @@ class FluidToolsController {
         println "${params.action}"
         def procedure = SystemProcedure.findByControllerNameAndActionName(params.controller, params.action)
         
-        def tn = "尚未实现"
+        def tn = "temp/GasTemplate.xls"
         //checkTemplate(tn)
         
         chain(controller: "file", 
