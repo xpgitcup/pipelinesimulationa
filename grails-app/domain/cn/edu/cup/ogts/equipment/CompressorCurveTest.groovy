@@ -32,6 +32,8 @@ class CompressorCurveTest {
     static belongsTo = [compressor: Compressor]
 
     static constraints = {
+        compressor()
+        
         pressure()
         pressureUnit()
         temperatrue()  //温度
@@ -45,7 +47,6 @@ class CompressorCurveTest {
         comment(nullable: true)      //备注
     
         curve(nullable: true)        //测试曲线
-        
     }
     
     String toString() {
