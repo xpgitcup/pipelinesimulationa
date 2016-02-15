@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2016-02-15 10:12:22
+Date: 2016-02-15 10:23:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,14 +26,12 @@ CREATE TABLE `gas_component` (
   `chem_formula` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
   `family_id` bigint(20) NOT NULL,
-  `gas_id` bigint(20) DEFAULT NULL,
+  `gas` varchar(255) DEFAULT NULL,
   `is_pseudo` bit(1) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `unifac_structure` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_p9bkvi7964imu5sg6by05bi2k` (`family_id`),
-  KEY `FK_dd5ij0jxf25lvsybpa17jxi3` (`gas_id`),
-  CONSTRAINT `FK_dd5ij0jxf25lvsybpa17jxi3` FOREIGN KEY (`gas_id`) REFERENCES `fluid_gas` (`id`),
   CONSTRAINT `FK_p9bkvi7964imu5sg6by05bi2k` FOREIGN KEY (`family_id`) REFERENCES `gas_component_family` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8;
 
@@ -168,7 +166,7 @@ INSERT INTO `gas_component` VALUES ('125', '0', 'C27-C31', null, null, '二十�
 INSERT INTO `gas_component` VALUES ('126', '0', 'C32-C40', null, null, '三十二烷-四十烷', '1', null, null, null, null);
 INSERT INTO `gas_component` VALUES ('127', '0', 'C41-C80', null, null, '四十一烷-八十烷', '1', null, null, null, null);
 INSERT INTO `gas_component` VALUES ('128', '0', null, null, null, '假组分', '1', '实测-中卫站', '', '≥C6+(实测-中卫站)', null);
-INSERT INTO `gas_component` VALUES ('129', '0', null, null, null, '假组分', '1', '实测—阳曲', '', '≥C6+(实测—阳曲)', null);
-INSERT INTO `gas_component` VALUES ('130', '0', null, null, null, '假组分', '1', '实测了墩2线', '', '≥C6+(实测了墩2线)', null);
-INSERT INTO `gas_component` VALUES ('131', '0', null, null, null, '假组分', '1', '实测了墩3线', '', '≥C6+(实测了墩3线)', null);
+INSERT INTO `gas_component` VALUES ('129', '0', null, null, null, '假组分', '1', '实测-阳曲', '', '≥C6+(实测-阳曲)', null);
+INSERT INTO `gas_component` VALUES ('130', '0', null, null, null, '假组分', '1', '实测-了墩3线', '', '≥C6+(实测-了墩3线)', null);
+INSERT INTO `gas_component` VALUES ('131', '0', null, null, null, '假组分', '1', '实测-了墩2线', '', '≥C6+(实测-了墩2线)', null);
 INSERT INTO `gas_component` VALUES ('132', '0', null, null, null, '假组分', '1', '霍尔果斯站-实测-2015.9.18', '', '≥C6+(霍尔果斯站-实测-2015.9.18)', null);
