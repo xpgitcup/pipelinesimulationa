@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+var tabDiv;
+
 $(function () {
     console.info("处理附加的操作...");
     var appendTextDiv = $("#appendActionsText");
@@ -15,9 +17,10 @@ $(function () {
     var ul = $("#actions");
     console.info(ul);
     var li_href_str;
-    
-    var tabDiv = $('#newCompressorCurveTestTab');
+
+    tabDiv = $('#newCompressorCurveTestTab');
     console.info(tabDiv);
+    var pageContext;
 
     $.each(appendArray, function (index, value) {
         //console.info(index);
@@ -29,15 +32,36 @@ $(function () {
         li_href_str = "<li> <a href=\"javascript:" + action[1] + "()\">" + action[0] + "</a></li>";
         //console.info(nstr);
         ul.append(li_href_str);
-        
+
         //显示各个Tab页面
-        tabDiv.tabs("add", {title: value, content: index + value});
+        pageContext = '<div id=\"' + action[0] + '\"></div>';
+        tabDiv.tabs("add", {title: value, style: "padding:20px", content: pageContext});
     });
+
+    tabDiv.tabs('select', 0);   //激活第一个页面
 });
 
-function queryCompressor() {}
-function queryTest() {}
-function choiceCompressor() {}
-function importTest() {}
-function compressorTools() {}
+function queryCompressor() {
+    tabDiv.tabs('select', 0);
+}
+
+function queryTest() {
+    tabDiv.tabs('select', 1);
+    
+}
+
+function choiceCompressor() {
+    tabDiv.tabs('select', 2);
+    
+}
+
+function importTest() {
+    tabDiv.tabs('select', 3);
+    
+}
+
+function compressorTools() {
+    tabDiv.tabs('select', 4);
+    
+}
 
