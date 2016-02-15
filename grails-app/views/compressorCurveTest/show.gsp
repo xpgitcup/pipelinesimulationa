@@ -23,6 +23,15 @@
 			</g:if>
 			<ol class="property-list compressorCurveTest">
 			
+				<g:if test="${compressorCurveTestInstance?.compressor}">
+				<li class="fieldcontain">
+					<span id="compressor-label" class="property-label"><g:message code="compressorCurveTest.compressor.label" default="Compressor" /></span>
+					
+						<span class="property-value" aria-labelledby="compressor-label"><g:link controller="compressor" action="show" id="${compressorCurveTestInstance?.compressor?.id}">${compressorCurveTestInstance?.compressor?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${compressorCurveTestInstance?.pressure}">
 				<li class="fieldcontain">
 					<span id="pressure-label" class="property-label"><g:message code="compressorCurveTest.pressure.label" default="Pressure" /></span>
@@ -100,15 +109,6 @@
 					<span id="curve-label" class="property-label"><g:message code="compressorCurveTest.curve.label" default="Curve" /></span>
 					
 						<span class="property-value" aria-labelledby="curve-label"><g:link controller="curve" action="show" id="${compressorCurveTestInstance?.curve?.id}">${compressorCurveTestInstance?.curve?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${compressorCurveTestInstance?.compressor}">
-				<li class="fieldcontain">
-					<span id="compressor-label" class="property-label"><g:message code="compressorCurveTest.compressor.label" default="Compressor" /></span>
-					
-						<span class="property-value" aria-labelledby="compressor-label"><g:link controller="compressor" action="show" id="${compressorCurveTestInstance?.compressor?.id}">${compressorCurveTestInstance?.compressor?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

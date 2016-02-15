@@ -12,26 +12,26 @@ $(function () {
     var appendTextDiv = $("#appendActionsText");
     //console.info(appendTextDiv);
     var appendText = appendTextDiv.text();
-    console.info(appendText);
+    //console.info(appendText);
     appendArray = appendText.split(",");
-    console.info(appendArray);
+    //console.info(appendArray);
 
     var ul = $("#actions");
-    console.info(ul);
+    //console.info(ul);
     var li_href_str;
 
     tabDiv = $('#newCompressorCurveTestTab');
-    console.info(tabDiv);
+    //console.info(tabDiv);
     var pageContext;
 
     $.each(appendArray, function (index, value) {
         //console.info(index);
-        console.info(value);
+        //console.info(value);
         var action = value.split(":");
         
         tabPageDivs[index] = action[0];
         
-        console.info(action);
+        //console.info(action);
         //var $nstr =$("<li href=\"javascript:" + action[1] + "()\">" + action[0] + "</li>"); 
         //显示处理步骤中的各个按钮
         li_href_str = "<li> <a href=\"javascript:" + action[1] + "()\">" + action[0] + "</a></li>";
@@ -44,15 +44,18 @@ $(function () {
     });
 
     //tabDiv.tabs('select', 0);   //激活第一个页面
-    console.info(tabPageDivs);
+    //console.info(tabPageDivs);
 
     var fun = eval(appendArray[0]);
-    console.info(fun);
+    //console.info(fun);
     fun();
 });
 
 function showTest(compressorId) {
     console.info("列出" + compressorId + "相关的测试");
+    
+    //记录当前的压缩机
+    $('#currentCompressor').text(compressorId);
     
     $.ajax({
         type: 'POST',
@@ -67,6 +70,14 @@ function showTest(compressorId) {
             console.log('查询压缩机-出错了' + errorThrown);
         }
     });
+    
+    console.info($("#autoStep").is(":checked"));
+    var autoStep = $("#autoStep")[0].checked;
+    console.info(autoStep);
+    
+    if (autoStep) {
+        setTestStatus();
+    }
 }
 
 function queryCompressor() {
@@ -87,9 +98,22 @@ function queryCompressor() {
     });
 }
 
-function queryTest() {
+function setTestStatus() {
     tabDiv.tabs('select', 1);
-
+    
+    $.ajax({
+        type: 'POST',
+        url: 'compressorTools/createCompressorCurveTest',
+        data: {},
+        success: function (data, textStatus) {
+            $('#' + tabPageDivs[1]).html(data);
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log('查询压缩机-出错了' + xhr);
+            console.log('查询压缩机-出错了' + textStatus);
+            console.log('查询压缩机-出错了' + errorThrown);
+        }
+    });
 }
 
 function choiceCompressor() {

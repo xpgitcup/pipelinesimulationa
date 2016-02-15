@@ -9,6 +9,16 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class CompressorToolsController {
     
+    def createCompressorCurveTest() {
+        def test = new CompressorCurveTest()
+        
+        if (request.xhr) {
+            render(template: "newCompressorCurveTest", model:[compressorCurveTestInstance: test])
+        } else {
+            render(template: "newCompressorCurveTest", model:[compressorCurveTestInstance: test])
+        }
+    }
+    
     /*
      * 检索某压缩及对应的测试！
      * */
