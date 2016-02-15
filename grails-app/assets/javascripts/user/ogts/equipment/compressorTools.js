@@ -101,10 +101,11 @@ function queryCompressor() {
 function setTestStatus() {
     tabDiv.tabs('select', 1);
     
+    var compressorId = $("currentCompressor").text;
     $.ajax({
         type: 'POST',
         url: 'compressorTools/createCompressorCurveTest',
-        data: {},
+        data: {id: compressorId},
         success: function (data, textStatus) {
             $('#' + tabPageDivs[1]).html(data);
         },
@@ -114,6 +115,8 @@ function setTestStatus() {
             console.log('查询压缩机-出错了' + errorThrown);
         }
     });
+    
+    $("#compressor").value(compressorId);
 }
 
 function choiceCompressor() {

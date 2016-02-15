@@ -29,7 +29,7 @@
 
                                 </g:each>
                                     <tr>
-                                        <td><input id="autoStep" type="checkbox" name="autoStep" checked="checked"/>自动跳转到下一页</td>
+                                        <td><input id="autoStep" type="checkbox" name="autoStep" />自动跳转到下一页</td>
                                     </tr>
                             </table>
                         </td>

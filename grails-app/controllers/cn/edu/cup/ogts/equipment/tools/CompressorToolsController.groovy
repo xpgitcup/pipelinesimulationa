@@ -10,8 +10,9 @@ import grails.transaction.Transactional
 class CompressorToolsController {
     
     def createCompressorCurveTest() {
-        def test = new CompressorCurveTest()
-        
+        def comp = Compressor.get(params.id)
+        def test = new CompressorCurveTest(compressor: comp)
+        println "-- ${test.compressor}"
         if (request.xhr) {
             render(template: "newCompressorCurveTest", model:[compressorCurveTestInstance: test])
         } else {
@@ -24,7 +25,7 @@ class CompressorToolsController {
      * */
     def queryCompressorCurveTest() {
         def compressor = Compressor.get(params.id)
-        def tests
+        def tests = CompressorCurveTest.findByCompressor(compressor)
         if (request.xhr) {
             render(template: "compressorCurveTest", model:[tests: tests, compressor:compressor])
         } else {

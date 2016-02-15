@@ -21,29 +21,31 @@
                 <thead>
                     <tr>
 
-                        <g:sortableColumn property="pressure" title="${message(code: 'compressorCurveTest.pressure.label', default: 'Pressure')}" />
+                        <th><g:message code="compressorCurveTest.compressor.label" default="Compressor" /></th>
 
-                        <g:sortableColumn property="pressureUnit" title="${message(code: 'compressorCurveTest.pressureUnit.label', default: 'Pressure Unit')}" />
+                            <g:sortableColumn property="pressure" title="${message(code: 'compressorCurveTest.pressure.label', default: 'Pressure')}" />
 
-                        <g:sortableColumn property="temperatrue" title="${message(code: 'compressorCurveTest.temperatrue.label', default: 'Temperatrue')}" />
+                            <g:sortableColumn property="pressureUnit" title="${message(code: 'compressorCurveTest.pressureUnit.label', default: 'Pressure Unit')}" />
 
-                        <g:sortableColumn property="temperatureUnit" title="${message(code: 'compressorCurveTest.temperatureUnit.label', default: 'Temperature Unit')}" />
+                            <g:sortableColumn property="temperatrue" title="${message(code: 'compressorCurveTest.temperatrue.label', default: 'Temperatrue')}" />
 
-                        <g:sortableColumn property="speed" title="${message(code: 'compressorCurveTest.speed.label', default: 'Speed')}" />
+                            <g:sortableColumn property="temperatureUnit" title="${message(code: 'compressorCurveTest.temperatureUnit.label', default: 'Temperature Unit')}" />
 
-                        <g:sortableColumn property="speedUnit" title="${message(code: 'compressorCurveTest.speedUnit.label', default: 'Speed Unit')}" />
+                            <g:sortableColumn property="speed" title="${message(code: 'compressorCurveTest.speed.label', default: 'Speed')}" />
 
-                        <g:sortableColumn property="testDate" title="${message(code: 'compressorCurveTest.testDate.label', default: 'Test Date')}" />
+                            <g:sortableColumn property="speedUnit" title="${message(code: 'compressorCurveTest.speedUnit.label', default: 'Speed Unit')}" />
 
-                        <g:sortableColumn property="comment" title="${message(code: 'compressorCurveTest.comment.label', default: 'Comment')}" />
+                            <g:sortableColumn property="testDate" title="${message(code: 'compressorCurveTest.testDate.label', default: 'Test Date')}" />
 
                     </tr>
                 </thead>
                 <tbody>
-                    <g:each in="${tests}" status="i" var="compressorCurveTestInstance">
+                    <g:each in="${compressorCurveTestInstanceList}" status="i" var="compressorCurveTestInstance">
                         <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 
-                            <td><g:link action="show" id="${compressorCurveTestInstance.id}">${fieldValue(bean: compressorCurveTestInstance, field: "pressure")}</g:link></td>
+                            <td><g:link action="show" id="${compressorCurveTestInstance.id}">${fieldValue(bean: compressorCurveTestInstance, field: "compressor")}</g:link></td>
+
+                            <td>${fieldValue(bean: compressorCurveTestInstance, field: "pressure")}</td>
 
                             <td>${fieldValue(bean: compressorCurveTestInstance, field: "pressureUnit")}</td>
 
@@ -57,12 +59,11 @@
 
                             <td><g:formatDate date="${compressorCurveTestInstance.testDate}" /></td>
 
-                            <td>${fieldValue(bean: compressorCurveTestInstance, field: "comment")}</td>
-
                         </tr>
                     </g:each>
                 </tbody>
             </table>
+
             <div class="paginationGrails">
                 <g:paginate total="${compressorCurveTestInstanceCount ?: 0}" />
             </div>
