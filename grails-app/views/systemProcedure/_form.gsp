@@ -52,7 +52,7 @@
 		<g:message code="systemProcedure.appendActions.label" default="Append Actions" />
 		
 	</label>
-	<g:textField name="appendActions" value="${systemProcedureInstance?.appendActions}"/>
+	<g:textField name="appendActions" value="${systemProcedureInstance?.appendActions}" size="100"/>
 
 </div>
 
