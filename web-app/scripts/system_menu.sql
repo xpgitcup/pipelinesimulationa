@@ -63,4 +63,4 @@ INSERT INTO `system_menu` VALUES ('301', '0', 'fluidTools/index', '气体', '维
 INSERT INTO `system_menu` VALUES ('302', '0', 'fluidTools/prepareImportComponentFactors', '导入气体', '维护气体信息', '0', '0', '300');
 
 INSERT INTO `system_menu` VALUES ('400', '2', '#', '压缩机特性测试', '压缩机特性曲线', '5', '0', null);
-INSERT INTO `system_menu` VALUES ('401', '0', 'compressorTools/index', '压缩机特性', '压缩机', '0', '0', '100');
+INSERT INTO `system_menu` VALUES ('401', '0', 'compressorTools/index', '压缩机特性', '压缩机', '0', '0', '400');

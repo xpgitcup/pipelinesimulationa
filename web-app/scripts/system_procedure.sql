@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2016-02-14 16:42:57
+Date: 2016-02-15 11:26:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,7 +35,7 @@ CREATE TABLE `system_procedure` (
   KEY `FK_qoihmm7f3k6inga0kwdx4631r` (`previous_id`),
   CONSTRAINT `FK_hb3wr8lfurf3r0y3qt2ku7ali` FOREIGN KEY (`next_id`) REFERENCES `system_procedure` (`id`),
   CONSTRAINT `FK_qoihmm7f3k6inga0kwdx4631r` FOREIGN KEY (`previous_id`) REFERENCES `system_procedure` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of system_procedure
@@ -48,3 +48,4 @@ INSERT INTO `system_procedure` VALUES ('5', '2', 'prepareImportPropertyDataA', n
 INSERT INTO `system_procedure` VALUES ('6', '0', 'importPropertyDataA', null, 'propertyDataTools', '3.1导入物性数值-简单物性', null, '5', null, null);
 INSERT INTO `system_procedure` VALUES ('7', '2', 'prepareImportComponentFactors', null, 'fluidTools', '4.气体导入', '8', null, 'componentFactors', null);
 INSERT INTO `system_procedure` VALUES ('8', '1', 'importComponentFactors', '查重:checkGasName', 'fluidTools', '4.1导入气体组分', null, '7', null, null);
+INSERT INTO `system_procedure` VALUES ('9', '3', 'newCompressorCurveTest', '压缩机:queryCompressor, 测试:queryTest, 选择压缩机: choiceCompressor, 导入:importTest', 'compressorTools', '5.压缩机特性测试', null, null, null, null);
