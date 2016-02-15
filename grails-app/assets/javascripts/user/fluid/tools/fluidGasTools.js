@@ -25,6 +25,8 @@ $(function () {
         console.info(nstr);
         ul.append(nstr);
     });
+    
+    checkGasName();
 });
 
 function checkGasName() {
