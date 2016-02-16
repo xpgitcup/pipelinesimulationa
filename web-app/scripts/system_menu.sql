@@ -64,3 +64,4 @@ INSERT INTO `system_menu` VALUES ('302', '0', 'fluidTools/prepareImportComponent
 
 INSERT INTO `system_menu` VALUES ('400', '2', '#', '压缩机特性测试', '压缩机特性曲线', '5', '0', null);
 INSERT INTO `system_menu` VALUES ('401', '0', 'compressorTools/index', '压缩机特性', '压缩机', '0', '0', '400');
+INSERT INTO `system_menu` VALUES ('402', '0', 'compressorTools4LangFang/index', '廊坊项目', '压缩机', '0', '0', '400');

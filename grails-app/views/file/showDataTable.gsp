@@ -9,7 +9,7 @@
 </head>
 <body>
     <a href="#list-testDataA" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-    <div id="appendActionsText" class="">${nextStep.appendActions}</div>
+    <div id="appendActionsText" class="hidden">${nextStep.appendActions}</div>
     <div class="nav" role="navigation">
         <ul id="action">
             <li>
