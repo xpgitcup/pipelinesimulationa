@@ -26,6 +26,8 @@
 					
 						<th><g:message code="compressorCurveTest.compressor.label" default="Compressor" /></th>
 					
+						<th><g:message code="compressorCurveTest.gas.label" default="Gas" /></th>
+					
 						<g:sortableColumn property="pressure" title="${message(code: 'compressorCurveTest.pressure.label', default: 'Pressure')}" />
 					
 						<g:sortableColumn property="pressureUnit" title="${message(code: 'compressorCurveTest.pressureUnit.label', default: 'Pressure Unit')}" />
@@ -38,8 +40,6 @@
 					
 						<g:sortableColumn property="speedUnit" title="${message(code: 'compressorCurveTest.speedUnit.label', default: 'Speed Unit')}" />
 					
-						<g:sortableColumn property="testDate" title="${message(code: 'compressorCurveTest.testDate.label', default: 'Test Date')}" />
-					
 					</tr>
 				</thead>
 				<tbody>
@@ -47,6 +47,8 @@
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
 						<td><g:link action="show" id="${compressorCurveTestInstance.id}">${fieldValue(bean: compressorCurveTestInstance, field: "compressor")}</g:link></td>
+					
+						<td>${fieldValue(bean: compressorCurveTestInstance, field: "gas")}</td>
 					
 						<td>${fieldValue(bean: compressorCurveTestInstance, field: "pressure")}</td>
 					
@@ -59,8 +61,6 @@
 						<td>${fieldValue(bean: compressorCurveTestInstance, field: "speed")}</td>
 					
 						<td>${fieldValue(bean: compressorCurveTestInstance, field: "speedUnit")}</td>
-					
-						<td><g:formatDate date="${compressorCurveTestInstance.testDate}" /></td>
 					
 					</tr>
 				</g:each>

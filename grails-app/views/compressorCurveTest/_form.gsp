@@ -11,6 +11,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: compressorCurveTestInstance, field: 'gas', 'error')} required">
+	<label for="gas">
+		<g:message code="compressorCurveTest.gas.label" default="Gas" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="gas" name="gas.id" from="${cn.edu.cup.fluid.gas.FluidGas.list()}" optionKey="id" required="" value="${compressorCurveTestInstance?.gas?.id}" class="many-to-one"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: compressorCurveTestInstance, field: 'pressure', 'error')} required">
 	<label for="pressure">
 		<g:message code="compressorCurveTest.pressure.label" default="Pressure" />
@@ -89,15 +98,6 @@
 		
 	</label>
 	<g:select id="curve" name="curve.id" from="${cn.edu.cup.base.Curve.list()}" optionKey="id" value="${compressorCurveTestInstance?.curve?.id}" class="many-to-one" noSelection="['null': '']"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: compressorCurveTestInstance, field: 'gas', 'error')} required">
-	<label for="gas">
-		<g:message code="compressorCurveTest.gas.label" default="Gas" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:select id="gas" name="gas.id" from="${cn.edu.cup.fluid.gas.FluidGas.list()}" optionKey="id" required="" value="${compressorCurveTestInstance?.gas?.id}" class="many-to-one"/>
 
 </div>
 

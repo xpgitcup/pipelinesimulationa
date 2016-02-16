@@ -52,8 +52,75 @@ $(function () {
     fun();
 });
 
-function showTest(compressorId) {
+function saveCompressorCurveTest(params) {
+    console.info("保存测试状态！");
+    tabDiv.tabs('select', appendArray[3]);
+    
+    console.info(params);
+    
+    $.ajax({
+        type: 'POST',
+        url: 'compressorTools/saveCompressorCurveTest',
+        data: {params: params},
+        success: function (data, textStatus) {
+            $('#newCurveTest').html(data);
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log('保存测试条件-出错了' + xhr);
+            console.log('保存测试条件-出错了' + textStatus);
+            console.log('保存测试条件-出错了' + errorThrown);
+        }
+    });
+}
+
+function setCurrentFluidGas(radioItem) {
+    var id = radioItem.value;
+    console.info("列出" + id + "相关的测试");
+    console.info(radioItem);
+    
+    //记录当前的压缩机
+    $('#currentFluidGas').text(id);
+    
+    $.ajax({
+        type: 'POST',
+        url: 'compressorTools/queryCompressorCurveTest4FluidGas',
+        data: {id: id},
+        success: function (data, textStatus) {
+            $('#testDiv4FluidGas').html(data);
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log('查询气体对应的测试-出错了' + xhr);
+            console.log('查询气体对应的测试-出错了' + textStatus);
+            console.log('查询气体对应的测试-出错了' + errorThrown);
+        }
+    });
+}
+
+
+//显示当前全部气体的列表
+function queryFluidGas() {
+    tabDiv.tabs('select', appendArray[1]);
+    
+    $.ajax({
+        type: 'POST',
+        url: 'compressorTools/queryFluidGas',
+        data: {},
+        success: function (data, textStatus) {
+            $('#' + tabPageDivs[1]).html(data);
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log('查询压缩机-出错了' + xhr);
+            console.log('查询压缩机-出错了' + textStatus);
+            console.log('查询压缩机-出错了' + errorThrown);
+        }
+    });
+}
+
+//相应Radio按钮的点击，选择当前的压缩机，显示当前压缩机已有的测试
+function showTest(radioItem) {
+    var compressorId = radioItem.value;
     console.info("列出" + compressorId + "相关的测试");
+    console.info(radioItem);
     
     //记录当前的压缩机
     $('#currentCompressor').text(compressorId);
@@ -81,6 +148,7 @@ function showTest(compressorId) {
     }
 }
 
+//列出可选的压缩机
 function queryCompressor() {
     tabDiv.tabs('select', 0);
     
@@ -99,18 +167,22 @@ function queryCompressor() {
     });
 }
 
+//设置测试状态
 function setTestStatus() {
-    tabDiv.tabs('select', 1);
+    tabDiv.tabs('select', appendArray[2]);
     
     var compressorId = $("#currentCompressor").text();
     console.info("当前选择的是： " + compressorId);
     
+    var gasId = $("#currentFluidGas").text();
+    console.info("当前选择的是： " + gasId);
+    
     $.ajax({
         type: 'POST',
         url: 'compressorTools/createCompressorCurveTest',
-        data: {id: compressorId},
+        data: {compressorId: compressorId, gasId: gasId},
         success: function (data, textStatus) {
-            $('#' + tabPageDivs[1]).html(data);
+            $('#' + tabPageDivs[2]).html(data);
         },
         error: function (xhr, textStatus, errorThrown) {
             console.log('查询压缩机-出错了' + xhr);

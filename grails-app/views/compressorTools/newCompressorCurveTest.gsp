@@ -21,8 +21,16 @@
         <div class="easyui-tabs" id="newCompressorCurveTestTab">
         </div>
     </div>
-    <div class="">
-        <div id="currentCompressor"></div>
+    <div class="paginationGrails">
+        <table>
+            <tr>
+                <td>当前压缩机：</td>
+                <td><div id="currentCompressor"></div></td>
+                <td>${compressor?.name}</td>
+                <td>当前气质：</td>
+                <td><div id="currentFluidGas"></div></td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>

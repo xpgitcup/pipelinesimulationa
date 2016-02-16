@@ -13,7 +13,7 @@
     </head>
     <body>
         <div id="create-compressorCurveTest" class="content scaffold-create" role="main">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <h1>输入测试条件：</h1>
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
@@ -24,14 +24,14 @@
                         </g:eachError>
                 </ul>
             </g:hasErrors>
-            <g:form url="[resource:compressorCurveTestInstance, action:'save']" >
+                <form action="javascript:saveCompressorCurveTest()" method="POST">
                 <fieldset class="form">
                     <g:render template="form"/>
                 </fieldset>
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>
-            </g:form>
+            </form>
         </div>
 
     </body>

@@ -33,6 +33,7 @@ class CompressorCurveTest {
 
     static constraints = {
         compressor()
+        gas()
         
         pressure()
         pressureUnit()

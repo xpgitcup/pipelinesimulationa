@@ -32,6 +32,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${compressorCurveTestInstance?.gas}">
+				<li class="fieldcontain">
+					<span id="gas-label" class="property-label"><g:message code="compressorCurveTest.gas.label" default="Gas" /></span>
+					
+						<span class="property-value" aria-labelledby="gas-label"><g:link controller="fluidGas" action="show" id="${compressorCurveTestInstance?.gas?.id}">${compressorCurveTestInstance?.gas?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${compressorCurveTestInstance?.pressure}">
 				<li class="fieldcontain">
 					<span id="pressure-label" class="property-label"><g:message code="compressorCurveTest.pressure.label" default="Pressure" /></span>
@@ -109,15 +118,6 @@
 					<span id="curve-label" class="property-label"><g:message code="compressorCurveTest.curve.label" default="Curve" /></span>
 					
 						<span class="property-value" aria-labelledby="curve-label"><g:link controller="curve" action="show" id="${compressorCurveTestInstance?.curve?.id}">${compressorCurveTestInstance?.curve?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${compressorCurveTestInstance?.gas}">
-				<li class="fieldcontain">
-					<span id="gas-label" class="property-label"><g:message code="compressorCurveTest.gas.label" default="Gas" /></span>
-					
-						<span class="property-value" aria-labelledby="gas-label"><g:link controller="fluidGas" action="show" id="${compressorCurveTestInstance?.gas?.id}">${compressorCurveTestInstance?.gas?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

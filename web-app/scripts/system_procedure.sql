@@ -48,4 +48,4 @@ INSERT INTO `system_procedure` VALUES ('5', '2', 'prepareImportPropertyDataA', n
 INSERT INTO `system_procedure` VALUES ('6', '0', 'importPropertyDataA', null, 'propertyDataTools', '3.1导入物性数值-简单物性', null, '5', null, null);
 INSERT INTO `system_procedure` VALUES ('7', '2', 'prepareImportComponentFactors', null, 'fluidTools', '4.气体导入', '8', null, 'componentFactors', null);
 INSERT INTO `system_procedure` VALUES ('8', '1', 'importComponentFactors', '查重:checkGasName', 'fluidTools', '4.1导入气体组分', null, '7', null, null);
-INSERT INTO `system_procedure` VALUES ('9', '3', 'newCompressorCurveTest', '选压缩机:queryCompressor,测试条件:setTestStatus,导入数据:importTest', 'compressorTools', '5.压缩机特性测试', null, null, null, null);
+INSERT INTO `system_procedure` VALUES ('9', '3', 'newCompressorCurveTest', '选压缩机:queryCompressor,选气质:queryFluidGas,测试条件:setTestStatus,导入数据:importTest', 'compressorTools', '5.压缩机特性测试', null, null, null, null);

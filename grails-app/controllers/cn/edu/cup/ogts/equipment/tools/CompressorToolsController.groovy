@@ -3,6 +3,7 @@ package cn.edu.cup.ogts.equipment.tools
 import cn.edu.cup.system.SystemProcedure
 import cn.edu.cup.ogts.equipment.CompressorCurveTest
 import cn.edu.cup.ogts.equipment.Compressor
+import cn.edu.cup.fluid.gas.FluidGas
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -10,11 +11,52 @@ import grails.transaction.Transactional
 class CompressorToolsController {
     
     /*
+     * 保存测试状态
+     * */
+    @Transactional
+    def saveCompressorCurveTest() {
+        println "${params}"
+        compressorCurveTestInstance.save flush:true
+        if (request.xhr) {
+            render(template: "compressorCurveTest", model:[compressorCurveTestInstance: compressorCurveTestInstance])
+        } else {
+            render(template: "compressorCurveTest", model:[compressorCurveTestInstance: compressorCurveTestInstance])
+        }
+    }
+    
+    /*
+     * 检索使用该气体的所有的测试
+     * */
+    def queryCompressorCurveTest4FluidGas() {
+        def gas = FluidGas.get(params.id)
+        println "${gas}"
+        def tests = CompressorCurveTest.findByGas(gas)
+        if (request.xhr) {
+            render(template: "compressorCurveTest", model:[tests: tests, gas: gas])
+        } else {
+            render(template: "compressorCurveTest", model:[tests: tests, gas: gas])
+        }
+    }
+    
+    /*
+     * 检索所有的气体信息
+     * */
+    def queryFluidGas() {
+        def fluidGasList = FluidGas.list()
+        if (request.xhr) {
+            render(template: "fluidGasList", model:[fluidGasList: fluidGasList])
+        } else {
+            render(template: "fluidGasList", model:[fluidGasList: fluidGasList])
+        }
+    }
+    
+    /*
      * 创建新的测试条件，
      * */
     def createCompressorCurveTest() {
-        def comp = Compressor.get(params.id)
-        def test = new CompressorCurveTest(compressor: comp)
+        def comp = Compressor.get(params.compressorId)
+        def gas = FluidGas.get(params.gasId)
+        def test = new CompressorCurveTest(compressor: comp, gas: gas)
         println "-- ${test.compressor}  ${comp}"
         if (request.xhr) {
             render(template: "newCompressorCurveTest", model:[compressorCurveTestInstance: test])
@@ -32,7 +74,7 @@ class CompressorToolsController {
         if (request.xhr) {
             render(template: "compressorCurveTest", model:[tests: tests, compressor:compressor])
         } else {
-            render(template: "compressorCurveTest", model:[tests: tests, compressor: compressor])
+            render(template: "compressorCurveTest", model:[tests: tests, compressor:compressor])
         }
     }
     
