@@ -102,7 +102,9 @@ function queryCompressor() {
 function setTestStatus() {
     tabDiv.tabs('select', 1);
     
-    var compressorId = $("currentCompressor").text;
+    var compressorId = $("#currentCompressor").text();
+    console.info("当前选择的是： " + compressorId);
+    
     $.ajax({
         type: 'POST',
         url: 'compressorTools/createCompressorCurveTest',
@@ -117,7 +119,8 @@ function setTestStatus() {
         }
     });
     
-    $("#compressor").attr("value", compressorId);
+    //$("#compressor").attr("value", compressorId);
+    //document.getElementById("compressor").value = compressorId;
 }
 
 function choiceCompressor() {
