@@ -9,10 +9,13 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class CompressorToolsController {
     
+    /*
+     * 创建新的测试条件，
+     * */
     def createCompressorCurveTest() {
         def comp = Compressor.get(params.id)
         def test = new CompressorCurveTest(compressor: comp)
-        println "-- ${test.compressor}"
+        println "-- ${test.compressor}  ${comp}"
         if (request.xhr) {
             render(template: "newCompressorCurveTest", model:[compressorCurveTestInstance: test])
         } else {

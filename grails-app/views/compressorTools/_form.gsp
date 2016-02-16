@@ -7,7 +7,8 @@
 		<g:message code="compressorCurveTest.compressor.label" default="Compressor" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField id="compressor" name="compressor.id" optionKey="id" required="" class="many-to-one"/>
+	<!--g:textField id="compressor" name="compressor.id" optionKey="id" required="" class="many-to-one"/-->
+	<g:select id="compressor" name="compressor.id" from="${cn.edu.cup.ogts.equipment.Compressor.list()}" optionKey="id" required="" value="${compressorCurveTestInstance?.compressor?.id}" class="many-to-one"/>
 
 </div>
 
