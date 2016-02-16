@@ -7,6 +7,7 @@ var tabDiv;
 var appendArray;
 var tabPageDivs = new Array();
 
+//加载后，第一时间执行
 $(function () {
     console.info("处理附加的操作...");
     var appendTextDiv = $("#appendActionsText");
@@ -116,7 +117,7 @@ function setTestStatus() {
         }
     });
     
-    $("#compressor").value(compressorId);
+    $("#compressor").attr("value", compressorId);
 }
 
 function choiceCompressor() {
